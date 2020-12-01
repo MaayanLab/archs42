@@ -1,0 +1,10 @@
+FROM tutum/lamp
+
+RUN mkdir -p /app/archs4dev
+
+
+# Bundle app source
+COPY ./archs4 /app/archs4dev
+
+EXPOSE 80
+
