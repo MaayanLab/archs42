@@ -481,7 +481,10 @@ Extracted samples from a specified tissue can originate from multiple series wit
 # R script to download selected samples
 # Copy code and run on a local machine to initiate download
 # Check for dependencies and install if missing
+
 library("rhdf5")    # can be installed using Bioconductor
+library("preprocessCore")
+library("sva")
 
 destination_file = "human_matrix_v9.h5"
 extracted_expression_file = "GSM2679484_expression_matrix.tsv"
