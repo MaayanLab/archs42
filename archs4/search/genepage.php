@@ -174,7 +174,7 @@
 
             var xAxis = d3.axisTop()
                 .scale(xScale)
-                .ticks(8)
+                .ticks(1)
                 .tickFormat(formatSkillPoints);
 
             // Setting up a way to handle the data
