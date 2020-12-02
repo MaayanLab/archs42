@@ -645,12 +645,7 @@ text {
     font-weight: normal;
     font-size: 8px;
 }
-.xAxis .tick text{
-  font-family: Arial, Helvetica, sans-serif;
-  fill: black;
-  font-weight: normal;
-  font-size: 10px;
-}
+
 .grid .tick line{
     stroke: grey;
     stroke-dasharray: 5, 10;
@@ -700,6 +695,15 @@ text {
     2px -1px 0 #000,
     -2px -1px 0 #000;
 }
+
+.xAxis .tick text{
+  font-family: Arial, Helvetica, sans-serif !important;
+  fill: black !important;
+  font-weight: normal !important;
+  font-size: 10px !important;
+  text-shadow: none !important;
+}
+
 .ballG text {
     fill: white;
 }
