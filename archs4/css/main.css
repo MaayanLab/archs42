@@ -646,16 +646,10 @@ text {
     font-size: 8px;
 }
 .xAxis .tick text{
-    font-family: "Arial Black", Gadget, sans-serif;
-    fill: black;
-    font-weight: 100;
-    font-size: 10px;
-
-    stroke: #fff;
-    stroke-width: 4px;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    font-weight: 200;
+  font-family: "Arial Black", Gadget, sans-serif;
+  fill: black;
+  font-weight: normal;
+  font-size: 8px;
 }
 .grid .tick line{
     stroke: grey;
