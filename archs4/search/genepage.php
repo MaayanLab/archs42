@@ -174,8 +174,7 @@
 
             var xAxis = d3.axisTop()
                 .scale(xScale)
-                .ticks(1)
-                .tickFormat(formatSkillPoints);
+                .ticks(8);
 
             // Setting up a way to handle the data
             var tree = d3.cluster()                 // This D3 API method setup the Dendrogram datum position.
