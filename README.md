@@ -1,6 +1,6 @@
 # ARCHS42
 
-Updated ARCHS4 repository
+Updated ARCHS4 repository for interface components
 
 ![ARCHS4](https://github.com/MaayanLab/archs42/blob/main/archs4/images/pipeline.png)
 
