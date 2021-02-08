@@ -19,7 +19,7 @@ BIOJUPIES_OLD="https://amp.pharm.mssm.edu/biojupies"
 DATASETSTOOLS_OLD="https://amp.pharm.mssm.edu/datasets2tools"
 SCAVI_OLD="https://amp.pharm.mssm.edu/scavi"
 HARMONIZOME_OLD="https://amp.pharm.mssm.edu/Harmonizome"
-CORRELATION="https://amp.pharm.mssm.edu/matrixapi"
+CORRELATION_OLD="https://amp.pharm.mssm.edu/matrixapi"
 
 cd /app/archs4
 
