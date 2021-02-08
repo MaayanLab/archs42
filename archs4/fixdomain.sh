@@ -19,6 +19,7 @@ BIOJUPIES_OLD="https://amp.pharm.mssm.edu/biojupies"
 DATASETSTOOLS_OLD="https://amp.pharm.mssm.edu/datasets2tools"
 SCAVI_OLD="https://amp.pharm.mssm.edu/scavi"
 HARMONIZOME_OLD="https://amp.pharm.mssm.edu/Harmonizome"
+CORRELATION="https://amp.pharm.mssm.edu/matrixapi"
 
 cd /app/archs4
 
@@ -65,6 +66,11 @@ fi
 if [ ! -z ${HARMONIZOME+x} ];
 then
     grep -rl $HARMONIZOME_OLD . | xargs sed -i 's@'"$HARMONIZOME_OLD"'@'"$HARMONIZOME"'@g';
+fi
+
+if [ ! -z ${CORRELATION+x} ];
+then
+    grep -rl $CORRELATION_OLD . | xargs sed -i 's@'"$CORRELATION_OLD"'@'"$CORRELATION"'@g';
 fi
 
 cd /

@@ -1395,6 +1395,49 @@ function get_series(searchterm, termid){
     });
 }
 
+function loadCorrelation(gene){
+    $("#correlation").html("");
+
+    gene = gene1;
+    var jsonData = {};
+
+    jsonData["gene"] = gene;
+    jsonData["count"] = 101;
+    $.ajax({
+        type: "POST",
+        url: "https://amp.pharm.mssm.edu/matrixapi/coltop",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(jsonData),
+        success: function(jdata) {
+            var data = jdata;
+
+            var genesym = data["rowids"];
+            var correlation = data["values"];
+
+            //3) separate them back out:
+            genes = "";
+            var corrinfo = {};
+            var tabletext = "<table id='tablecor' class='table table-striped table-bordered'><thead><tr><th>Rank</th><th>Gene Symbol</th><th>Pearson Correlation</th></tr><tbody>";
+            for (var k = 1; k < genesym.length; k++) {
+                tabletext += "<tr><td>"+k+"</td><td><a href=\"genepage.php?search=go&gene="+genesym[k]+"\" target=\"_blank\">"+genesym[k]+"</a></td><td>"+correlation[k]+"</td></tr>";
+                genes = genes+genesym[k]+"\n";
+                corrinfo[genesym[k]] = correlation[k];
+            }
+            tabletext += "</tbody></table>";
+            //console.log(corrinfo);
+            geneinfovar["correlation"] = corrinfo;
+            document.getElementById("correlation").innerHTML = tabletext;
+
+            $(document).ready(function(){
+                $('#tablecor').DataTable();
+            });
+        },
+        error: function (xhr, textStatus, errorThrown) {
+        }
+    });
+}
+
 function loadDendrogram(species, gene, type){
     // main svg
     $("#anchorlinks").fadeOut(300);

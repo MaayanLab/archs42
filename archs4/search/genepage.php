@@ -58,48 +58,36 @@
         }
 
         function loadCorrelation(gene1){
+            $("#correlation").html("");
 
             gene = gene1;
             var jsonData = {};
 
             jsonData["gene"] = gene;
-
+            jsonData["count"] = 101;
             $.ajax({
                 type: "POST",
-                url: "https://amp.pharm.mssm.edu/custom/rooky",
+                url: "https://amp.pharm.mssm.edu/matrixapi/coltop",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(jsonData),
                 success: function(jdata) {
-                    var samples = jdata;
+                    var data = jdata;
 
-                    var genesym = [];
-                    var correlation = {};
-
-                    //1) combine the arrays:
-                    var list = [];
-                    for (var j = 0; j < samples[0].length; j++){
-                        list.push({'genesym': samples[0][j], 'cor': samples[1][j]});
-                    }
-
-                    //2) sort:
-                    list.sort(function(a, b) {
-                        return ((a.cor > b.cor) ? -1 : ((a.cor == b.cor) ? 0 : 1));
-                        //Sort could be modified to, for example, sort on the age
-                        // if the name is the same.
-                    });
+                    var genesym = data["rowids"];
+                    var correlation = data["values"];
 
                     //3) separate them back out:
                     genes = "";
                     var corrinfo = {};
                     var tabletext = "<table id='tablecor' class='table table-striped table-bordered'><thead><tr><th>Rank</th><th>Gene Symbol</th><th>Pearson Correlation</th></tr><tbody>";
-                    for (var k = 1; k < 101; k++) {
-                        tabletext += "<tr><td>"+k+"</td><td><a href=\""+list[k].genesym+"\" target=\"_blank\">"+list[k].genesym+"</a></td><td>"+list[k].cor+"</td></tr>";
-                        genes = genes+list[k].genesym+"\n";
-                        corrinfo[list[k].genesym] = list[k].cor;
+                    for (var k = 1; k < genesym.length; k++) {
+                        tabletext += "<tr><td>"+k+"</td><td><a href=\"genepage.php?search=go&gene="+genesym[k]+"\" target=\"_blank\">"+genesym[k]+"</a></td><td>"+correlation[k]+"</td></tr>";
+                        genes = genes+genesym[k]+"\n";
+                        corrinfo[genesym[k]] = correlation[k];
                     }
                     tabletext += "</tbody></table>";
-                    console.log(corrinfo);
+                    //console.log(corrinfo);
                     geneinfovar["correlation"] = corrinfo;
                     document.getElementById("correlation").innerHTML = tabletext;
 
