@@ -63,7 +63,7 @@
             gene = gene1;
             var jsonData = {};
 
-            jsonData["gene"] = gene;
+            jsonData["id"] = gene;
             jsonData["count"] = 101;
             $.ajax({
                 type: "POST",
