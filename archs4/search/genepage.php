@@ -82,7 +82,7 @@
                     var corrinfo = {};
                     var tabletext = "<table id='tablecor' class='table table-striped table-bordered'><thead><tr><th>Rank</th><th>Gene Symbol</th><th>Pearson Correlation</th></tr><tbody>";
                     for (var k = 1; k < genesym.length; k++) {
-                        tabletext += "<tr><td>"+k+"</td><td><a href=\"genepage.php?search=go&gene="+genesym[k]+"\" target=\"_blank\">"+genesym[k]+"</a></td><td>"+correlation[k]+"</td></tr>";
+                        tabletext += "<tr><td>"+k+"</td><td><a href=\"/archs4/gene/"+genesym[k]+"\" target=\"_blank\">"+genesym[k]+"</a></td><td>"+correlation[k]+"</td></tr>";
                         genes = genes+genesym[k]+"\n";
                         corrinfo[genesym[k]] = correlation[k];
                     }
