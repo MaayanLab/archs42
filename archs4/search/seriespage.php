@@ -105,14 +105,14 @@ if(isset($_GET["search"])){
     $impsamples = "'".implode("','", $sampleids)."'";
     
     $sql="SELECT gsm, runinfo.listid, parameters, SUM(nreads), SUM(naligned) FROM samplemapping INNER JOIN runinfo ON samplemapping.listid=runinfo.listid INNER JOIN sequencing ON samplemapping.listid=sequencing.id WHERE samplemapping.gsm IN (".$impsamples.") GROUP BY gsm;";
-    #$sql = "SELECT listid, gse, gsm FROM samplemapping WHERE gsm IN (".$impsamples.") GROUP BY gsm;";
+    
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     
     $stmt->bind_result($data[0], $data[1], $data[2], $data[3], $data[4]);
     
     $sp = explode(";", $ii->Item[4]);
-    $gpl = array_intersect(["21493", "21103", "19057", "18480", "17021", "15103", "13112", "21290", "20301", "18573", "18460", "16791", "15433", "11154"], $sp);
+    $gpl = array_intersect(["21493", "21103", "19057", "18480", "17021", "15103", "13112", "21290", "20301", "18573", "18460", "16791", "15433", "11154", "23227", "23479", "24676", "24247", "21626", "21697", "21273", "20795"], $sp);
     
     $cgpl = [];
     foreach($gpl as &$g){
@@ -148,14 +148,6 @@ if(isset($_GET["search"])){
     echo "<br><br><br><br><div sytle=\"text-align: center\"><h3>".$title."</h3></div>";
     echo "<div>";
     echo "<div><b>Summary: </b>".$summary."</div><br><div style=\"float: left;\"><div><b>GEO:</b> <a href=\"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=".$id."\" target=\"_blank\">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=".$id."</a></div>";
-    if(isset($d2tid)){
-        echo "<div><b>Datasets2Tools:</b> <a href=\"https://amp.pharm.mssm.edu/datasets2tools/landing/canned_analysis/".$d2tid."\"  target=\"_blank\">https://amp.pharm.mssm.edu/datasets2tools/landing/canned_analysis/".$d2tid."</a></div>";
-    }
-    
-    $scavi = file_get_contents('https://amp.pharm.mssm.edu/scavi/graph_page/'.$_GET["search"].'/tSNE/3');
-    if(substr( $scavi, 0, 3 ) === "<!d"){
-        echo "<div><b>SCAVI:</b> <a href=\"https://amp.pharm.mssm.edu/scavi/graph_page/".$_GET["search"]."/tSNE/3\"  target=\"_blank\">https://amp.pharm.mssm.edu/scavi/graph_page/".$_GET["search"]."/tSNE/3</a></div>";
-    }
     
     echo "</div><div style=\"float: right;\">";
     foreach($gpl as &$g){
