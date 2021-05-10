@@ -213,6 +213,7 @@
         style="background-color: white; width: 960px; margin:0 auto; border: 1px solid #E3E3E3; padding-left: 20px; padding-right:20px;">
         <div>
             <h2>ARCHS<sup>4</sup> Downloads</h2>
+            
         </div>
         <hr>
         This section contains all files created for the ARCHS4 website. The methods are described at <a
@@ -233,8 +234,21 @@
             </form>
         </div>
         <hr>
+        <a href="javascript:scrollPage('exp_gene')">Expression (gene level)</a> | 
+        <a href="javascript:scrollPage('exp_trans')">Expression (transcript level)</a> |
+        <a href="javascript:scrollPage('exp_tpm')">TPM (transcript level)</a> | 
+        <a href="javascript:scrollPage('exp_affy')">Expression (Affymetrix arrays)</a> |
+        <a href="javascript:scrollPage('tsne_sample')">t-SNE sample coordiantes</a> | 
+        <a href="javascript:scrollPage('tsne_gene')">t-SNE gene coordinates</a> |
+        <a href="javascript:scrollPage('correlation_gene')">Gene correlation</a> | 
+        <a href="javascript:scrollPage('prismexp_pred')">PrismExp predictions</a> |
+        <a href="javascript:scrollPage('jl_transform')">JL transformed expression</a> | 
+        <a href="javascript:scrollPage('kallisto_index')">Kallisto index files</a> |
+        <a href="javascript:scrollPage('exp_recount')">recount2 expression</a> | 
+        <a href="javascript:scrollPage('github_rep')">GitHub repository</a>
+        <hr>
         <div>
-            <div style="float: left; width:340px;">
+            <div id="exp_gene" style="float: left; width:340px;">
                 <h3>Expression (gene level)</h3>
             </div>
             <div style="float: left; width:270px;">
@@ -269,7 +283,7 @@
             </div>
             <hr>
 
-            <div style="float: left; width:340px;">
+            <div id="exp_trans" style="float: left; width:340px;">
                 <h3>Expression (transcript level)</h3>
             </div>
             <div style="float: left; width:270px;">
@@ -301,7 +315,7 @@
             </div>
             <hr>
 
-            <div style="float: left; width:340px;">
+            <div id="exp_tpm" style="float: left; width:340px;">
                 <h3>TPM (transcript level)</h3>
             </div>
             <div style="float: left; width:270px;">
@@ -333,7 +347,7 @@
             </div>
             <hr>
 
-            <div style="float: left; width:340px;">
+            <div id="exp_affy" style="float: left; width:340px;">
                 <h3>Expression (Affymetrix arrays)</h3>
             </div>
             <div style="float: left; width:270px;">
@@ -395,7 +409,7 @@
             </div>
             <hr>
 
-            <div style="float: left; width:340px;">
+            <div id="tsne_sample" style="float: left; width:340px;">
                 <h3>t-SNE sample coordinates</h3>
             </div>
             <div style="float: left; width:270px;">
@@ -431,7 +445,7 @@
             <hr>
 
 
-            <div style="float: left; width:340px;">
+            <div id="tsne_gene" style="float: left; width:340px;">
                 <h3>t-SNE gene coordinates</h3>
             </div>
             <div style="float: left; width:270px;">
@@ -515,7 +529,7 @@
     -->
 
 
-                <div style="float: left; width:340px;">
+                <div id="correlation_gene" style="float: left; width:340px;">
                     <h3>Gene correlation</h3>
                 </div>
                 <div style="float: left; width:270px;">
@@ -573,7 +587,7 @@
                 <hr>
 
 
-                <div style="float: left; width:940px;">
+                <div id="prismexp_pred" style="float: left; width:940px;">
                     <h3>PrismExp predictions</h3>
                 </div>
 
@@ -594,7 +608,7 @@
                 </div>
                 <hr>
 
-                <div style="float: left; width:340px;">
+                <div id="jl_transform" style="float: left; width:340px;">
                     <h3>JL transfomed expression</h3>
                 </div>
                 <div style="float: left; width:270px;">
@@ -630,7 +644,7 @@
                 </div>
                 <hr>
 
-                <div style="float: left; width:340px;">
+                <div id="kallisto_index" style="float: left; width:340px;">
                     <h3>Kallisto index files</h3>
                 </div>
                 <div style="float: left; width:270px;">
@@ -666,7 +680,7 @@
 
                 <hr>
 
-                <div style="float: left; width:340px;">
+                <div id="exp_recount" style="float: left; width:340px;">
                     <h3>recount2 expression</h3>
                 </div>
                 <div style="float: left; width:270px;">
@@ -703,7 +717,7 @@
 
                 <hr>
 
-                <div style="float: left; width:1000px;">
+                <div id="github_rep" style="float: left; width:1000px;">
                     <h3>GitHub repository</h3>
                 </div>
                 <br><br><br><br>
@@ -765,6 +779,7 @@
             </div>
         </div>
 
+        <!--
         <script>
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -776,7 +791,7 @@
             ga('create', 'UA-6277639-31', 'auto');
             ga('send', 'pageview');
         </script>
-
+   
         <script>
             $.getJSON("search/getGenes.php", function (data) {
                 var genes = data;
@@ -793,6 +808,6 @@
                 });
             });
         </script>
-
+ -->
 </body>
 </html>
