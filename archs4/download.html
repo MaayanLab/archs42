@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Alexander Lachmann">
     <title>ARCHS4</title>
-    
+
     <link rel="icon" href="images/archs-icon.png?v=2" type="image/png">
 
     <script src="scripts/three.min.js"></script>
@@ -14,16 +14,19 @@
     <script src="scripts/jquery-3.1.1.min.js"></script>
     <script src="scripts/d3.layout.cloud.js"></script>
     <script src="scripts/tags.js"></script>
-    
+
     <script type="text/javascript" src="scripts/word-cloud.js"></script>
     <!-- <script type="text/javascript" src="http://www.json.org/json2.js"></script> -->
     <link rel="stylesheet" type="text/css" href="css/spectrum.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    
+
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" href="css/css.css">
@@ -31,374 +34,487 @@
     <link rel="stylesheet" type="text/css" href="css/desert.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    
+
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
+
     <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-    
+
     <script src="scripts/jquery.auto-complete.min.js"></script>
     <link rel="stylesheet" href="css/jquery.auto-complete.css">
-    
+
     <style type="text/css">
-    body {
-        font-size: 100%;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-    #refresh-btn {
-        float: right;
-        font-size: 12px;
-        border-radius: 0;
-    }
-    
-    html {
-      height: 100%;
-      box-sizing: border-box;
-    }
-
-    *,
-    *:before,
-    *:after {
-      box-sizing: inherit;
-    }
-
-    body {
-      position: relative;
-      margin: 0;
-      padding-bottom: 6rem;
-      min-height: 100%;
-    }
-    
-    table {
-      border-spacing: 10px;
-      background: #61ffc9;
-      font-size: 14px;
-    }
-    td {
-      padding: 10px;
-      background: #e4fff6;
-    }
-
-</style>
-    
-    <style type="text/css">
-    body {
-        margin: 0px;
-        padding: 0px;
-        font-family: 'Open Sans', sans-serif;
-        background-color: #f2fbfa;
-        background-image: url("images/congruent_pentagon2.png");
-        background-repeat: repeat;
-    }
-    
-    </style>
-    
-    <script type="text/javascript">
-        
-        if (location.protocol != 'https:'){
-         //location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+        body {
+            font-size: 100%;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
-        
-        function addemail(){
+
+        #refresh-btn {
+            float: right;
+            font-size: 12px;
+            border-radius: 0;
+        }
+
+        html {
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            position: relative;
+            margin: 0;
+            padding-bottom: 6rem;
+            min-height: 100%;
+        }
+
+        table {
+            border-spacing: 10px;
+            background: #61ffc9;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 10px;
+            background: #e4fff6;
+        }
+    </style>
+
+    <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f2fbfa;
+            background-image: url("images/congruent_pentagon2.png");
+            background-repeat: repeat;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        if (location.protocol != 'https:') {
+            //location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+        }
+
+        function addemail() {
             var email = $("#emailfield").val();
-            if(email.length > 1){
+            if (email.length > 1) {
                 $.ajax({
-                    url : "search/emaillist.php?email="+email,
+                    url: "search/emaillist.php?email=" + email,
                     dataType: "text",
-                    success : function (data) {
+                    success: function (data) {
                         $("#newsletterform").html("<br><b>Thank you for joining the ARCHS4 newsletter.</b>");
                     }
                 });
             }
         }
-        
-        function submitGeneSearch(){
+
+        function submitGeneSearch() {
             var geneid = $("#genesymbolsearch").val().toUpperCase();
-            if(geneid.length > 1){
-                window.open("search/genepage.php?search=go&gene="+geneid,'_blank');
+            if (geneid.length > 1) {
+                window.open("search/genepage.php?search=go&gene=" + geneid, '_blank');
             }
         }
-        
-        function scrollPage(location){
+
+        function scrollPage(location) {
             $('html, body').animate({
-                scrollTop: $("#"+location).offset().top - 20
+                scrollTop: $("#" + location).offset().top - 20
             }, 500);
         }
-        
-        function downloadFile(_url, file, version){
-            
-            $.getJSON('https://api.db-ip.com/v2/free/self/', function(data) {
+
+        function downloadFile(_url, file, version) {
+
+            $.getJSON('https://api.db-ip.com/v2/free/self/', function (data) {
                 $.ajax({
                     type: "GET",
-                    url : "search/downloadtracker.php?ip="+data["ipAddress"]+"&file="+file+"&version="+version,
-                    success : function () {
+                    url: "search/downloadtracker.php?ip=" + data["ipAddress"] + "&file=" + file + "&version=" + version,
+                    success: function () {
                         window.location = _url;
                     },
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
                         console.log(textStatus, errorThrown);
                         window.location = _url;
                     }
                 });
             });
         }
-        
+
     </script>
 </head>
+
 <body>
 
 
-<div id="nav" style="margin-bottom: 5px; background-color: #F8F8F8; border-bottom: 1px solid #E7E7E7; height: 60px;">
-    <nav class="navbar navbar-default navbar-toggleable-md navbar-inverse container" role="navigation" style="width:1050px">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
+    <div id="nav"
+        style="margin-bottom: 5px; background-color: #F8F8F8; border-bottom: 1px solid #E7E7E7; height: 60px;">
+        <nav class="navbar navbar-default navbar-toggleable-md navbar-inverse container" role="navigation"
+            style="width:1050px">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" title="ARCHS: All RNA-seq and Chip-seq Seqeuncing" href="index.html">
-                    <span>
-                        <img src="images/archs-42.png" width=160 style="padding-top: 3px;">
-                    </span>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" title="ARCHS: All RNA-seq and Chip-seq Seqeuncing" href="index.html">
+                        <span>
+                            <img src="images/archs-42.png" width=160 style="padding-top: 3px;">
+                        </span>
                     </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="color:white;">
-                <ul class="nav navbar-nav">
-                    <li id="browse" class="dropdown disabled">
-                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: lightgrey;">Search<span class="caret"></span></a>
-                        
-                    </li>
-                    
-                    <li id="visualize"><a href="data.html">Visualize</a></li>
-                    
-                    <li id="download"><a href="download.html">Download</a></li>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="color:white;">
+                    <ul class="nav navbar-nav">
+                        <li id="browse" class="dropdown disabled">
+                            <a class="dropdown-toggle" data-toggle="dropdown" style="color: lightgrey;">Search<span
+                                    class="caret"></span></a>
 
-                    <li id="chrome"><a href="https://chrome.google.com/webstore/detail/archs4/ognafeffndmmiliegaamoockceneedea" target="_blank">Chrome Extension</a></li>
-                    <li id="help"><a href="help.html">Help</a></li>
-                    
-                    <li id="twitter"><a href="#" onclick="window.open('https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fwww.biorxiv.org%2Fcontent%2Fearly%2F2017%2F09%2F15%2F189092&ref_src=twsrc%5Etfw&text=Massive%20Mining%20of%20Publicly%20Available%20RNA-seq%20Data%20from%20Human%20and%20Mouse&tw_p=tweetbutton&url=https%3A%2F%2Fwww.biorxiv.org%2Fcontent%2Fearly%2F2017%2F09%2F15%2F189092', 'newwindow', 'width=600, height=250'); return false;"><img id="animation-target" src="images/twitter.png" width="25" style="margin-top:-1px;"></a></li>
-                    
-                    <!--<li id="contribute"><a href="#contribute">Contribute</a></li>-->
-                </ul>
-                <form class="form-inline my-2 my-lg-0" style="padding-top: 6px; float: right; margin-right:-5px;" action="javascript:submitGeneSearch()">
-                  <input class="form-control mr-sm-2" id="genesymbolsearch" type="text" placeholder="Search Gene">
-                  <button class="btn btn-info my-2 my-sm-0" type="button" onclick="submitGeneSearch();">Search</button>
-                </form>
+                        </li>
+
+                        <li id="visualize"><a href="data.html">Visualize</a></li>
+
+                        <li id="download"><a href="download.html">Download</a></li>
+
+                        <li id="chrome"><a
+                                href="https://chrome.google.com/webstore/detail/archs4/ognafeffndmmiliegaamoockceneedea"
+                                target="_blank">Chrome Extension</a></li>
+                        <li id="help"><a href="help.html">Help</a></li>
+
+                        <li id="twitter"><a href="#"
+                                onclick="window.open('https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fwww.biorxiv.org%2Fcontent%2Fearly%2F2017%2F09%2F15%2F189092&ref_src=twsrc%5Etfw&text=Massive%20Mining%20of%20Publicly%20Available%20RNA-seq%20Data%20from%20Human%20and%20Mouse&tw_p=tweetbutton&url=https%3A%2F%2Fwww.biorxiv.org%2Fcontent%2Fearly%2F2017%2F09%2F15%2F189092', 'newwindow', 'width=600, height=250'); return false;"><img
+                                    id="animation-target" src="images/twitter.png" width="25"
+                                    style="margin-top:-1px;"></a></li>
+
+                        <!--<li id="contribute"><a href="#contribute">Contribute</a></li>-->
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" style="padding-top: 6px; float: right; margin-right:-5px;"
+                        action="javascript:submitGeneSearch()">
+                        <input class="form-control mr-sm-2" id="genesymbolsearch" type="text" placeholder="Search Gene">
+                        <button class="btn btn-info my-2 my-sm-0" type="button"
+                            onclick="submitGeneSearch();">Search</button>
+                    </form>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-            <!-- /.navbar-collapse -->
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+
+
+
+    <div
+        style="background-color: white; width: 960px; margin:0 auto; border: 1px solid #E3E3E3; padding-left: 20px; padding-right:20px;">
+        <div>
+            <h2>ARCHS<sup>4</sup> Downloads</h2>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
-</div>
+        <hr>
+        This section contains all files created for the ARCHS4 website. The methods are described at <a
+            href="https://www.nature.com/articles/s41467-018-03751-6" target="_blank"> <span
+                class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> <img src="images/naturecomm.png"
+                height=20></a>. For help in accessing the files refer to the Help section or contact us directly. The
+        database will be updated on a regular basis and old versions of the files will be accessible.
+        <div id="newsletterform">
+            <br>
+            <div style="width: 500px; float: left; margin-right: 10px;">
+                If you would like to receive updates on the ARCHS4 data and stay informed about new data releases
+                consider signing up for the newsletter.
+            </div>
+            <form class="form-inline my-2 my-lg-0" style="padding-top: 2px;" action="javascript:addemail()">
+                <input class="form-control mr-sm-2" id="emailfield" type="email" placeholder="Email address"
+                    style="width: 260px;">
+                <button class="btn btn-info my-2 my-sm-0" type="button" onclick="addemail();">Keep Me Updated</button>
+            </form>
+        </div>
+        <hr>
+        <div>
+            <div style="float: left; width:340px;">
+                <h3>Expression (gene level)</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Human</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Mouse</h3>
+            </div>
 
 
+            <div style="width:900px; height:180px; padding-left:30px;">
+                <div style="float: left; width:310px; padding-right: 60px;">
+                    Expression files for mouse and human in HDF5 format. All gene counts are on gene level (Entrez Gene
+                    Symbol). For compression purposes the Kallisto pseudocounts are rounded to integer values.
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_matrix_v10.h5','human_matrix_v10.h5','10')">human_matrix_v10.h5</a><br>
+                    <i>Date: 02-25-2021</i>
+                    <br>
+                    <i>Size: 13G</i>
+                </div>
 
-<div style="background-color: white; width: 960px; margin:0 auto; border: 1px solid #E3E3E3; padding-left: 20px; padding-right:20px;">
-<div><h2>ARCHS<sup>4</sup>  Downloads</h2></div>
-<hr>
-This section contains all files created for the ARCHS4 website. The methods are described at <a href="https://www.nature.com/articles/s41467-018-03751-6" target="_blank"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> <img src="images/naturecomm.png" height=20></a>. For help in accessing the files refer to the Help section or contact us directly. The database will be updated on a regular basis and old versions of the files will be accessible.
-<div id="newsletterform">
-    <br><div style="width: 500px; float: left; margin-right: 10px;">
-    If you would like to receive updates on the ARCHS4 data and stay informed about new data releases consider signing up for the newsletter.
-    </div>
-    <form class="form-inline my-2 my-lg-0" style="padding-top: 2px;" action="javascript:addemail()">
-      <input class="form-control mr-sm-2" id="emailfield" type="email" placeholder="Email address" style="width: 260px;">
-      <button class="btn btn-info my-2 my-sm-0" type="button" onclick="addemail();">Keep Me Updated</button>
-    </form>
-</div>
-<hr>
-<div>
-<div style="float: left; width:340px;"><h3>Expression (gene level)</h3></div>  <div style="float: left; width:270px;"><h3>Human</h3></div>  <div style="float: left; width:270px;"><h3>Mouse</h3></div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/mouse_matrix_v10.h5','mouse_matrix_v10.h5','10')">mouse_matrix_v10.h5</a><br>
+                    <i>Date: 02-25-2021</i>
+                    <br>
+                    <i>Size: 12G</i>
+                </div>
+
+            </div>
+            <hr>
+
+            <div style="float: left; width:340px;">
+                <h3>Expression (transcript level)</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Human</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Mouse</h3>
+            </div>
+
+            <div style="width:900px; height:170px; padding-left:30px;">
+                <div style="float: left; width:310px; padding-right: 60px;">
+                    Expression files for mouse and human in HDF5 format. All measurements are at the transcript level
+                    (Ensembl ID). For compression purposes the Kallisto pseudocounts are rounded to integer values.
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_transcript_v10.h5','human_transcript_v10.h5','10')">human_transcript_v10.h5</a><br>
+                    <i>Date: 02-25-2021</i>
+                    <br>
+                    <i>Size: 38G</i>
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/mouse_transcript_v10.h5','mouse_transcript_v10.h5','10')">mouse_transcript_v10.h5</a><br>
+                    <i>Date: 02-25-2021</i>
+                    <br>
+                    <i>Size: 25G</i>
+                </div>
+            </div>
+            <hr>
+
+            <div style="float: left; width:340px;">
+                <h3>TPM (transcript level)</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Human</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Mouse</h3>
+            </div>
+
+            <div style="width:900px; height:170px; padding-left:30px;">
+                <div style="float: left; width:310px; padding-right: 60px;">
+                    Expression files for mouse and human in HDF5 format. All measurements are at the transcript level
+                    (Ensembl ID). The files are very large and values are not rounded.
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_tpm_v10.h5','human_tpm_v10.h5','10')">human_tpm_v10.h5</a><br>
+                    <i>Date: 02-25-2021</i>
+                    <br>
+                    <i>Size: 82G</i>
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/mouse_tpm_v10.h5','mouse_tpm_v10.h5','10')">mouse_tpm_v10.h5</a><br>
+                    <i>Date: 02-25-2021</i>
+                    <br>
+                    <i>Size: 51G</i>
+                </div>
+            </div>
+            <hr>
+
+            <div style="float: left; width:340px;">
+                <h3>Expression (GCTx)</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Human</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Mouse</h3>
+            </div>
+
+            <div style="width:900px; height:170px; padding-left:30px;">
+                <div style="float: left; width:310px; padding-right: 60px;">
+                    Expression files for human in GCTx format (BROAD). All measurements are at the gene level (Entrez
+                    Gene Symbol). For more information about the format and software packages refer to this <a
+                        href="https://www.biorxiv.org/content/early/2018/01/03/227041" target="_blank">bioRxiv</a>
+                    paper.
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_eid_1.0.gctx','human_eid_1.0.gctx','1')">human_eid_1.0.gctx</a><br>
+                    <i>Date: 2/2018</i>
+                    <br>
+                    <i>Size: 10.7 GB</i>
+                </div>
+                <div style="float: left; width:270px;">
+
+                </div>
+            </div>
+            <hr>
+
+            <div style="float: left; width:340px;">
+                <h3>Expression (Affymetrix arrays)</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Human</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Mouse</h3>
+            </div>
+
+            <div style="width:900px; height:370px; padding-left:30px;">
+                <div style="float: left; width:310px; padding-right: 60px;">
+                    Expression files for human and mouse Affymetrix arrays. The collection contains 262,468 human
+                    samples and 86,012 mouse samples. All measurements are at the probe level. Values are taken as
+                    stored in GEO. For compression reasons values are stored as 16-bit floats.
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/GPL570_expression.h5','GPL570','1')">GPL570_expression.h5</a><br>
+                    <i>Date: 5/2021</i>
+                    <br>
+                    <i>Size: 14.7 GB</i>
+
+                    <br><br>
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/GPL571_expression.h5','GPL571','1')">GPL571_expression.h5</a><br>
+                    <i>Date: 5/2021</i>
+                    <br>
+                    <i>Size: 936 MB</i>
+
+                    <br><br>
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/GPL6244_expression.h5','GPL6244','1')">GPL6244_expression.h5</a><br>
+                    <i>Date: 5/2021</i>
+                    <br>
+                    <i>Size: 2 GB</i>
+
+                    <br><br>
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/GPL96_expression.h5','GPL96','1')">GPL96_expression.h5</a><br>
+                    <i>Date: 5/2021</i>
+                    <br>
+                    <i>Size: 1.66 GB</i>
+
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/GPL6246_expression.h5','GPL6246','1')">GPL6246_expression.h5</a><br>
+                    <i>Date: 5/2021</i>
+                    <br>
+                    <i>Size: 1.68 GB</i>
+
+                    <br><br>
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/GPL1261_expression.h5','GPL1261','1')">GPL1261_expression.h5</a><br>
+                    <i>Date: 5/2021</i>
+                    <br>
+                    <i>Size: 4.57 GB</i>
+                </div>
+            </div>
+            <hr>
+
+            <div style="float: left; width:340px;">
+                <h3>t-SNE sample coordinates</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Human</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Mouse</h3>
+            </div>
+
+            <div style="width:900px; height:170px; padding-left:30px;">
+                <div style="float: left; width:310px; padding-right: 60px;">
+                    Gene expression reduced to 3 dimensions. The files contain 4 columns with the first 3 containing
+                    dimensions x, y, z and the last column containing the numeric part of the GSM id (GSM123456 ->
+                    123456).
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/sample_human_tsne.csv','sample_human_tsne.csv','2')">sample_human_tsne.csv
+                        v2</a><br>
+                    <i>Date: 3/2018</i>
+                    <br>
+                    <i>Size: 2.9 MB</i>
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/sample_mouse_tsne.csv','sample_mouse_tsne.csv','2')">sample_mouse_tsne.csv
+                        v2</a><br>
+                    <i>Date: 3/2018</i>
+                    <br>
+                    <i>Size: 3.5 MB</i>
+                </div>
+            </div>
+            <hr>
 
 
-<div style="width:900px; height:250px; padding-left:30px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-        Expression files for mouse and human in HDF5 format. All gene counts are on gene level (Entrez Gene Symbol). For compression purposes the Kallisto pseudocounts are rounded to integer values.
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_matrix_v10.h5','human_matrix_v10.h5','10')">human_matrix_v10.h5</a><br>
-        <i>Date: 02-25-2021</i>
-        <br>
-        <i>Size: 13G</i>
-    </div>
+            <div style="float: left; width:340px;">
+                <h3>t-SNE gene coordinates</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Human</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Mouse</h3>
+            </div>
 
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/mouse_matrix_v10.h5','mouse_matrix_v10.h5','10')">mouse_matrix_v10.h5</a><br>
-        <i>Date: 02-25-2021</i>
-        <br>
-        <i>Size: 12G</i>
-    </div>
+            <div style="width:900px; height:170px; padding-left:30px;">
+                <div style="float: left; width:310px; padding-right: 60px;">
+                    Gene expression reduced to 3 dimensions. The files contain 4 columns with the first 3 containing
+                    dimensions x, y, z and the last column containing Entrez gene symbol.
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/gene_human_tsne.csv','gene_human_tsne.csv','2')">gene_human_tsne.csv
+                        v2</a><br>
+                    <i>Date: 3/2018</i>
+                    <br>
+                    <i>Size: 741.0 KB</i>
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/gene_mouse_tsne.csv','gene_mouse_tsne.csv','2')">gene_mouse_tsne.csv
+                        v2</a><br>
+                    <i>Date: 3/2018</i>
+                    <br>
+                    <i>Size: 606.0 KB</i>
+                </div>
+            </div>
+            <<<<<<< HEAD <hr>
 
-</div>
-<hr>
-
-<div style="float: left; width:340px;"><h3>Expression (transcript level)</h3></div>  <div style="float: left; width:270px;"><h3>Human</h3></div>  <div style="float: left; width:270px;"><h3>Mouse</h3></div>
-
-<div style="width:900px; height:170px; padding-left:30px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-    Expression files for mouse and human in HDF5 format. All measurements are at the transcript level (Ensembl ID). For compression purposes the Kallisto pseudocounts are rounded to integer values.
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_transcript_v10.h5','human_transcript_v10.h5','10')">human_transcript_v10.h5</a><br>
-        <i>Date: 02-25-2021</i>
-        <br>
-        <i>Size: 38G</i>
-    </div>
-     <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/mouse_transcript_v10.h5','mouse_transcript_v10.h5','10')">mouse_transcript_v10.h5</a><br>
-        <i>Date: 02-25-2021</i>
-        <br>
-        <i>Size: 25G</i>
-    </div>
-</div>
-<hr>
-
-<div style="float: left; width:340px;"><h3>TPM (transcript level)</h3></div>  <div style="float: left; width:270px;"><h3>Human</h3></div>  <div style="float: left; width:270px;"><h3>Mouse</h3></div>
-
-<div style="width:900px; height:170px; padding-left:30px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-    Expression files for mouse and human in HDF5 format. All measurements are at the transcript level (Ensembl ID). The files are very large and values are not rounded.
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_tpm_v10.h5','human_tpm_v10.h5','10')">human_tpm_v10.h5</a><br>
-        <i>Date: 02-25-2021</i>
-        <br>
-        <i>Size: 82G</i>
-    </div>
-     <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/mouse_tpm_v10.h5','mouse_tpm_v10.h5','10')">mouse_tpm_v10.h5</a><br>
-        <i>Date: 02-25-2021</i>
-        <br>
-        <i>Size: 51G</i>
-    </div>
-</div>
-<hr>
-
-<div style="float: left; width:340px;"><h3>Expression (GCTx)</h3></div>  <div style="float: left; width:270px;"><h3>Human</h3></div>  <div style="float: left; width:270px;"><h3>Mouse</h3></div>
-
-<div style="width:900px; height:170px; padding-left:30px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-    Expression files for human in GCTx format (BROAD). All measurements are at the gene level level (Entrez Gene Symbol). For more information about the format and software packages refer to this <a href="https://www.biorxiv.org/content/early/2018/01/03/227041" target="_blank">bioRxiv</a> paper.
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_eid_1.0.gctx','human_eid_1.0.gctx','1')">human_eid_1.0.gctx</a><br>
-        <i>Date: 2/2018</i>
-        <br>
-        <i>Size: 10.7 GB</i>
-    </div>
-     <div style="float: left; width:270px;">
-        
-    </div>
-</div>
-<hr>
-
-
-
-<div style="float: left; width:340px;"><h3>t-SNE sample coordinates</h3></div>  <div style="float: left; width:270px;"><h3>Human</h3></div>  <div style="float: left; width:270px;"><h3>Mouse</h3></div>
-
-<div style="width:900px; height:170px; padding-left:30px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-        Gene expression reduced to 3 dimensions. The files contain 4 columns with the first 3 containing dimensions x, y, z and the last column containing the numeric part of the GSM id (GSM123456 -> 123456). 
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/sample_human_tsne.csv','sample_human_tsne.csv','2')">sample_human_tsne.csv v2</a><br>
-        <i>Date: 3/2018</i>
-        <br>
-        <i>Size: 2.9 MB</i>
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/sample_mouse_tsne.csv','sample_mouse_tsne.csv','2')">sample_mouse_tsne.csv v2</a><br>
-        <i>Date: 3/2018</i>
-        <br>
-        <i>Size: 3.5 MB</i>
-    </div>
-</div>
-<hr>
-
-
-<div style="float: left; width:340px;"><h3>t-SNE gene coordinates</h3></div>  <div style="float: left; width:270px;"><h3>Human</h3></div>  <div style="float: left; width:270px;"><h3>Mouse</h3></div>
-
-<div style="width:900px; height:170px; padding-left:30px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-        Gene expression reduced to 3 dimensions. The files contain 4 columns with the first 3 containing dimensions x, y, z and the last column containing Entrez gene symbol. 
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/gene_human_tsne.csv','gene_human_tsne.csv','2')">gene_human_tsne.csv v2</a><br>
-        <i>Date: 3/2018</i>
-        <br>
-        <i>Size: 741.0 KB</i>
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/gene_mouse_tsne.csv','gene_mouse_tsne.csv','2')">gene_mouse_tsne.csv v2</a><br>
-        <i>Date: 3/2018</i>
-        <br>
-        <i>Size: 606.0 KB</i>
-    </div>
-</div>
-<hr>
-
-<!--
-<div style="float: left; width:340px;"><h3>GSM meta information</h3></div>  <div style="float: left; width:270px;"><h3>Human</h3></div>  <div style="float: left; width:270px;"><h3>Mouse</h3></div>
-
-<div style="width:900px; height:170px; padding-left:30px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-        Meta information retrieved from GEO for GSM samples. The data is stored in an RDS file that can be loaded into memory in R. The data is stored in a list object.
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_gsm_meta.rda','human_gsm_meta.rda','8')">human_gsm_meta.rda v8</a><br>
-        <i>Date: 2/2020</i>
-        <br>
-        <i>Size: 52 MB</i>
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/mouse_gsm_meta.rda','mouse_gsm_meta.rda','8')">mouse_gsm_meta.rda v8</a><br>
-        <i>Date: 2/2020</i>
-        <br>
-        <i>Size: 65 MB</i>
-    </div>
-</div>
-<hr>
--->
-
-
-<div style="float: left; width:340px;"><h3>Gene correlation</h3></div>  <div style="float: left; width:270px;"><h3>Human</h3></div>  <div style="float: left; width:270px;"><h3>Mouse</h3></div>
-
-<div style="width:900px; height:120px; padding-left:30px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-        Pairwise pearson correlation of genes across expression samples.
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_correlation.rda','human_correlation.rda','1')">human_correlation.rda v1.0</a><br>
-        <i>Date: 10/2017</i>
-        <br>
-        <i>Size: 5.0 GB</i>
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/mouse_correlation.rda','mouse_correlation.rda','1')">mouse_correlation.rda v1.0</a><br>
-        <i>Date: 8/2017</i>
-        <br>
-        <i>Size: 3.0 GB</i>
-    </div>
-</div>
-
-<div style="width:900px; height:120px; padding-left:30px; padding-top: 20px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-        Pairwise pearson correlation of genes across expression samples. File format is <a href="https://arrow.apache.org/docs/python/feather.html">feather</a> and can be loaded directly into memory in Python and R.
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-data/human_correlation_archs4.f','human_correlation_archs4.f','1')">human_correlation_archs4.f v1.0</a><br>
-        <i>Date: 7/2020</i>
-        <br>
-        <i>Size: 5.3 GB</i>
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-data/mouse_correlation_archs4.f','mouse_correlation_archs4.f','1')">mouse_correlation_archs4.f v1.0</a><br>
-        <i>Date: 7/2020</i>
-        <br>
-        <i>Size: 3.3 GB</i>
-    </div>
+                <!--
+    <div style="float: left; width:340px;"><h3>GSM meta information</h3></div>  <div style="float: left; width:270px;"><h3>Human</h3></div>  <div style="float: left; width:270px;"><h3>Mouse</h3></div>
+    
+    <div style="width:900px; height:170px; padding-left:30px;">
+        <div style="float: left; width:310px; padding-right: 60px;">
+            Meta information retrieved from GEO for GSM samples. The data is stored in an RDS file that can be loaded into memory in R. The data is stored in a list object.
+        </div>
+        <div style="float: left; width:270px;">
+            <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_gsm_meta.rda','human_gsm_meta.rda','8')">human_gsm_meta.rda v8</a><br>
+            <i>Date: 2/2020</i>
+            <br>
+            <i>Size: 52 MB</i>
+        </div>
+        <div style="float: left; width:270px;">
+            <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/mouse_gsm_meta.rda','mouse_gsm_meta.rda','8')">mouse_gsm_meta.rda v8</a><br>
+            <i>Date: 2/2020</i>
+            <br>
+            <i>Size: 65 MB</i>
+        </div>
+=======
 </div>
 <hr>
 
@@ -423,148 +539,290 @@ This section contains all files created for the ARCHS4 website. The methods are 
 <div style="width:900px; height:280px; padding-left:30px;">
     <div style="float: left; width:310px; padding-right: 60px;">
         Gene expression compressed with the Johnson-Lindenstrauss transformation. The RDA files can be loaded into a running R environment with the "load" command. The files create two variables, the transform matrix used for the projection and the jl_expression matrix. The original dimensions are reduced to 1000. The original distances and correlations of the samples should be preserved.
+>>>>>>> b8756b2fde8234a51ece59360a7fa59565c4b929
     </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/compressed_human_expression_1000.rda','compressed_human_expression_1000.rda','2')">compressed_human_1000.rda v2</a><br>
-        <i>Date: 3/2018</i>
-        <br>
-        <i>Size: 1.0 GB</i>
+    <hr>
+    -->
+
+
+                <div style="float: left; width:340px;">
+                    <h3>Gene correlation</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Human</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Mouse</h3>
+                </div>
+
+                <div style="width:900px; height:120px; padding-left:30px;">
+                    <div style="float: left; width:310px; padding-right: 60px;">
+                        Pairwise pearson correlation of genes across expression samples.
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/human_correlation.rda','human_correlation.rda','1')">human_correlation.rda
+                            v1.0</a><br>
+                        <i>Date: 10/2017</i>
+                        <br>
+                        <i>Size: 5.0 GB</i>
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/mouse_correlation.rda','mouse_correlation.rda','1')">mouse_correlation.rda
+                            v1.0</a><br>
+                        <i>Date: 8/2017</i>
+                        <br>
+                        <i>Size: 3.0 GB</i>
+                    </div>
+                </div>
+
+                <div style="width:900px; height:120px; padding-left:30px; padding-top: 20px;">
+                    <div style="float: left; width:310px; padding-right: 60px;">
+                        Pairwise pearson correlation of genes across expression samples. File format is <a
+                            href="https://arrow.apache.org/docs/python/feather.html">feather</a> and can be loaded
+                        directly into memory in Python and R.
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-data/human_correlation_archs4.f','human_correlation_archs4.f','1')">human_correlation_archs4.f
+                            v1.0</a><br>
+                        <i>Date: 7/2020</i>
+                        <br>
+                        <i>Size: 5.3 GB</i>
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-data/mouse_correlation_archs4.f','mouse_correlation_archs4.f','1')">mouse_correlation_archs4.f
+                            v1.0</a><br>
+                        <i>Date: 7/2020</i>
+                        <br>
+                        <i>Size: 3.3 GB</i>
+                    </div>
+                </div>
+                <hr>
+
+
+                <div style="float: left; width:940px;">
+                    <h3>PrismExp predictions</h3>
+                </div>
+
+                <div style="width:900px; height:150px; padding-left:30px; padding-top: 20px;">
+                    <div style="float: left; width:310px; padding-right: 60px;">
+                        Gene function prediction from PrismEXP using 300 correlation matrices in <a
+                            href="https://arrow.apache.org/docs/python/feather.html">feather</a> and can be loaded
+                        directly into memory in Python and R. Contains 155 files zipped.
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-prismexp-predictions/prismx_predictions.zip','prismx_prediction.zip','1')">prismx_prediction.zip
+                            v1.0</a><br>
+                        <i>Date: 4/2021</i>
+                        <br>
+                        <i>Size: 4.44 GB</i>
+                    </div>
+                </div>
+                <hr>
+
+                <div style="float: left; width:340px;">
+                    <h3>JL transfomed expression</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Human</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Mouse</h3>
+                </div>
+
+                <div style="width:900px; height:280px; padding-left:30px;">
+                    <div style="float: left; width:310px; padding-right: 60px;">
+                        Gene expression compressed with the Johnson-Lindenstrauss transformation. The RDA files can be
+                        loaded into a running R environment with the "load" command. The files create two variables, the
+                        transform matrix used for the projection and the jl_expression matrix. The original dimensions
+                        are reduced to 1000. The original distances and correlations of the samples should be preserved.
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/compressed_human_expression_1000.rda','compressed_human_expression_1000.rda','2')">compressed_human_1000.rda
+                            v2</a><br>
+                        <i>Date: 3/2018</i>
+                        <br>
+                        <i>Size: 1.0 GB</i>
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/compressed_mouse_expression_1000.rda','compressed_mouse_expression_1000.rda','2')">compressed_mouse_1000.rda
+                            v2</a><br>
+                        <i>Date: 3/2018</i>
+                        <br>
+                        <i>Size: 1.19 GB</i>
+                    </div>
+                </div>
+                <hr>
+
+                <div style="float: left; width:340px;">
+                    <h3>Kallisto index files</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Human</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Mouse</h3>
+                </div>
+
+                <div style="width:900px; height:210px; padding-left:30px;">
+                    <div style="float: left; width:310px; padding-right: 60px;">
+                        Kallisto index files used for the alignment process. The index files where build using the
+                        Ensembl annotation version 90 and reference cDNA Homo_sapiens.GRCh38.cdna.all.fa.gz and
+                        Mus_musculus.GRCm38.cdna.all.fa.gz.
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-index/human_index.idx','human_index.idx','1')">human_index.idx
+                            v1</a><br>
+                        <i>Date: 6/2018</i>
+                        <br>
+                        <i>Size: 2.2 GB</i>
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-index/mouse_index.idx','mouse_index.idx','1')">mouse_index.idx
+                            v1</a><br>
+                        <i>Date: 6/2018</i>
+                        <br>
+                        <i>Size: 1.8 GB</i>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div style="float: left; width:340px;">
+                    <h3>recount2 expression</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>GTEx</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>TCGA</h3>
+                </div>
+
+                <div style="width:900px; height:240px; padding-left:30px;">
+                    <div style="float: left; width:310px; padding-right: 60px;">
+                        Gene counts from GTEx and TCGA from the <a href="https://jhubiostatistics.shinyapps.io/recount/"
+                            target="_blank">recount2 project</a>. The reads for these samples was aligned with a
+                        different pipeline resulting in significant differences to the ARCHS4 gene expression. Genes
+                        that did not overlap with the genes in the ARCHS4 data were removed.
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/gtex_matrix.h5','gtex_matrix.h5','1')">gtex_matrix.h5
+                            recount2</a><br>
+                        <i>Date: 10/2017</i>
+                        <br>
+                        <i>Size: 589.5 MB</i>
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/tcga_matrix.h5','tcga_matrix.h5','1')">tcga_matrix.h5
+                            recount2</a><br>
+                        <i>Date: 10/2017</i>
+                        <br>
+                        <i>Size: 696.9 MB</i>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div style="float: left; width:1000px;">
+                    <h3>GitHub repository</h3>
+                </div>
+                <br><br><br><br>
+                <div style="width:800px; height:80px; padding-left:30px;">
+                    <p>The scripts used to process the ARCHS4 data are located at the link below. The project is not
+                        easily adapted at the current state. We are working on making the software more accessible in
+                        the future.</p>
+                    <a href="https://github.com/MaayanLab/archs4">https://github.com/MaayanLab/archs4</a>
+
+                </div>
+        </div>
     </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/compressed_mouse_expression_1000.rda','compressed_mouse_expression_1000.rda','2')">compressed_mouse_1000.rda v2</a><br>
-        <i>Date: 3/2018</i>
-        <br>
-        <i>Size: 1.19 GB</i>
-    </div>
-</div>
-<hr>
+    <br>
 
-<div style="float: left; width:340px;"><h3>Kallisto index files</h3></div>  <div style="float: left; width:270px;"><h3>Human</h3></div>  <div style="float: left; width:270px;"><h3>Mouse</h3></div>
+    <style>
+        .fl a {
+            text-decoration: none;
+            color: #000;
 
-<div style="width:900px; height:210px; padding-left:30px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-        Kallisto index files used for the alignment process. The index files where build using the Ensembl annotation version 90 and reference cDNA Homo_sapiens.GRCh38.cdna.all.fa.gz and Mus_musculus.GRCm38.cdna.all.fa.gz.
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-index/human_index.idx','human_index.idx','1')">human_index.idx v1</a><br>
-        <i>Date: 6/2018</i>
-        <br>
-        <i>Size: 2.2 GB</i>
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-index/mouse_index.idx','mouse_index.idx','1')">mouse_index.idx v1</a><br>
-        <i>Date: 6/2018</i>
-        <br>
-        <i>Size: 1.8 GB</i>
-    </div>
-</div>
+            -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+            -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+            -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+            -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+            transition: font-size 0.3s ease, background-color 0.3s ease;
+            display: block;
+        }
 
-<hr>
+        .fl a:hover {
+            font-weight: bolder;
+            color: #45c19f;
+        }
+    </style>
 
-<div style="float: left; width:340px;"><h3>recount2 expression</h3></div>  <div style="float: left; width:270px;"><h3>GTEx</h3></div>  <div style="float: left; width:270px;"><h3>TCGA</h3></div>
+    <div
+        style="padding:10px; padding-top:10px; padding-bottom: 0px; background-color:#F8F8F8; height:130px; border-top: 1px solid #E7E7E7; text-align: center;">
+        <div style="width: 940px; padding-left: 0px; margin: auto;">
+            <div style="float: left; width:260px; padding-left:10px;">
+                <img src="images/mountsinai.png" style="padding-bottom:10px;" height=100><br>
+            </div>
 
-<div style="width:900px; height:240px; padding-left:30px;">
-    <div style="float: left; width:310px; padding-right: 60px;">
-        Gene counts from GTEx and TCGA from the <a href="https://jhubiostatistics.shinyapps.io/recount/" target="_blank">recount2 project</a>. The reads for these samples was aligned with a different pipeline resulting in significant differences to the ARCHS4 gene expression. Genes that did not overlap with the genes in the ARCHS4 data were removed.
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/gtex_matrix.h5','gtex_matrix.h5','1')">gtex_matrix.h5 recount2</a><br>
-        <i>Date: 10/2017</i>
-        <br>
-        <i>Size: 589.5 MB</i>
-    </div>
-    <div style="float: left; width:270px;">
-        <a style="font-size:18;" href="javascript:downloadFile('https://s3.amazonaws.com/mssm-seq-matrix/tcga_matrix.h5','tcga_matrix.h5','1')">tcga_matrix.h5 recount2</a><br>
-        <i>Date: 10/2017</i>
-        <br>
-        <i>Size: 696.9 MB</i>
-    </div>
-</div>
+            <div style="float: left;">
+                <ul style="padding-left: 30px; list-style: none; text-align: left;">
+                    <li class="fl"><a href="http://icahn.mssm.edu/research/labs/maayan-laboratory" target="_blank">The
+                            Ma'ayan Lab</a></li>
+                    <li class="fl"><a href="http://www.lincs-dcic.org/" target="_blank">BD2K-LINCS Data Coordination and
+                            Integration Center (DCIC)</a></li>
+                    <li class="fl"><a href="http://www.lincsproject.org/">NIH LINCS program</a></li>
+                    <li class="fl"><a href="http://bd2k.nih.gov/" target="_blank">NIH Big Data to Knowledge (BD2K)</a>
+                    </li>
+                    <li class="fl"><a href="https://commonfund.nih.gov/idg/index" target="_blank">NIH Illuminating the
+                            Druggable Genome (IDG) Program</a></li>
+                    <li class="fl"><a href="http://icahn.mssm.edu/" target="_blank">Icahn School of Medicine at Mount
+                            Sinai</a></li>
+                </ul>
+            </div>
+            <div style="float: right; color: grey;">
+                <img src="images/dcic.png" height=100><br>
+                © Ma'ayan Lab.
+            </div>
+        </div>
 
-<hr>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-<div style="float: left; width:1000px;"><h3>GitHub repository</h3></div>
-<br><br><br><br>
-<div style="width:800px; height:80px; padding-left:30px;">
-<p>The scripts used to process the ARCHS4 data are located at the link below. The project is not easily adapted at the current state. We are working on making the software more accessible in the future.</p>
-<a href="https://github.com/MaayanLab/archs4">https://github.com/MaayanLab/archs4</a>
+            ga('create', 'UA-6277639-31', 'auto');
+            ga('send', 'pageview');
+        </script>
 
-</div>
-</div>
-</div>
-<br>
-
-<style>
-.fl a {
-  text-decoration: none;
-  color: #000;
-
-  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
-  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
-  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
-  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
-  transition: font-size 0.3s ease, background-color 0.3s ease;
-  display: block;
-}
-
-.fl a:hover {
-  font-weight: bolder;
-  color: #45c19f;
-}
-</style>
-
-<div style="padding:10px; padding-top:10px; padding-bottom: 0px; background-color:#F8F8F8; height:130px; border-top: 1px solid #E7E7E7; text-align: center;">
-<div style="width: 940px; padding-left: 0px; margin: auto;">
-    <div style="float: left; width:260px; padding-left:10px;">
-       <img src="images/mountsinai.png" style="padding-bottom:10px;" height=100><br>
-    </div>
-    
-    <div style="float: left;">
-         <ul style="padding-left: 30px; list-style: none; text-align: left;">
-            <li class="fl"><a href="http://icahn.mssm.edu/research/labs/maayan-laboratory" target="_blank">The Ma'ayan Lab</a></li>
-            <li class="fl"><a href="http://www.lincs-dcic.org/" target="_blank">BD2K-LINCS Data Coordination and Integration Center (DCIC)</a></li>
-            <li class="fl"><a href="http://www.lincsproject.org/">NIH LINCS program</a></li>
-            <li class="fl"><a href="http://bd2k.nih.gov/" target="_blank">NIH Big Data to Knowledge (BD2K)</a></li>
-            <li class="fl"><a href="https://commonfund.nih.gov/idg/index" target="_blank">NIH Illuminating the Druggable Genome (IDG) Program</a></li>
-            <li class="fl"><a href="http://icahn.mssm.edu/" target="_blank">Icahn School of Medicine at Mount Sinai</a></li>
-        </ul>
-    </div>
-    <div style="float: right; color: grey;">
-        <img src="images/dcic.png" height=100><br>
-        © Ma'ayan Lab.
-    </div>
-</div>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-6277639-31', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-<script>
-    $.getJSON("search/getGenes.php", function(data){
-        var genes = data;
-        $("#genesymbolsearch").autoComplete({
-            minChars: 3,
-            source: function(term, suggest){
-                term = term.toLowerCase();
-                var choices = genes;
-                var matches = [];
-                for (i=0; i<choices.length; i++)
-                    if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
-                suggest(matches);
-            }
-        });
-    });
-</script>
-
-
+        <script>
+            $.getJSON("search/getGenes.php", function (data) {
+                var genes = data;
+                $("#genesymbolsearch").autoComplete({
+                    minChars: 3,
+                    source: function (term, suggest) {
+                        term = term.toLowerCase();
+                        var choices = genes;
+                        var matches = [];
+                        for (i = 0; i < choices.length; i++)
+                            if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
+                        suggest(matches);
+                    }
+                });
+            });
+        </script>
 
 </body>
 </html>
-
