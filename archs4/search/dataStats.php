@@ -1,5 +1,6 @@
 
 <?php
+header('Content-type: application/json');
 /**
  * Created by PhpStorm.
  * User: maayanlab
@@ -8,8 +9,6 @@
  */
 
 require 'dbconfig.php';
-
-header('Content-type: application/json');
 
 if(isset($_GET["search"])){
     
