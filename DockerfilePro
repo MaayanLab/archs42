@@ -1,4 +1,4 @@
-FROM tutum/lamp
+FROM php:7.3-apache
 
 RUN mkdir -p /app/archs4
 
