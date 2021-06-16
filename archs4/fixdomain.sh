@@ -21,7 +21,7 @@ SCAVI_OLD="https://amp.pharm.mssm.edu/scavi"
 HARMONIZOME_OLD="https://amp.pharm.mssm.edu/Harmonizome"
 CORRELATION_OLD="https://amp.pharm.mssm.edu/matrixapi"
 
-cd /app/archs4
+cd /var/www/html/archs4
 
 if [ ! -z ${ARCHS4+x} ];
 then
