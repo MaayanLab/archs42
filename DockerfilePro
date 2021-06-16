@@ -1,6 +1,6 @@
 FROM php:7.3-apache
 
-RUN mkdir -p /app/archs4
+RUN mkdir -p /var/www/html/archs4
 
 # Bundle app source
 COPY ./archs4 /var/www/html/archs4
