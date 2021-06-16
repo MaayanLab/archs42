@@ -8,7 +8,7 @@ RUN docker-php-ext-install pdo pdo_mysql mysqli
 
 # Bundle app source
 COPY ./archs4 /var/www/html/archs4
-COPY ./archs4/apache2.conf /etc/apache
+COPY ./archs4/apache2.conf /etc/apache2
 
 RUN chmod 755 /var/www/html/archs4/fixdomain.sh
 
