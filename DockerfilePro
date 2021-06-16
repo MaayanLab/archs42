@@ -5,6 +5,7 @@ RUN mkdir -p /var/www/html/archs4
 # Bundle app source
 COPY ./archs4 /var/www/html/archs4
 
+RUN chmod 755 /*.sh
 RUN chmod 755 /var/www/html/archs4/fixdomain.sh
 
 CMD ["/var/www/html/archs4/fixdomain.sh"]
