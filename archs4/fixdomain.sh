@@ -74,5 +74,3 @@ then
 fi
 
 cd /
-
-/run.sh
