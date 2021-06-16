@@ -3,12 +3,11 @@ FROM php:7.3-apache
 RUN mkdir -p /app/archs4
 
 # Bundle app source
-COPY ./archs4 /app/archs4
+COPY ./archs4 /var/www/html/archs4
 
-RUN chmod 755 /*.sh
-RUN chmod 755 /app/archs4/fixdomain.sh
+RUN chmod 755 /var/www/html/archs4/fixdomain.sh
 
-CMD ["/app/archs4/fixdomain.sh"]
+CMD ["/var/www/html/archs4/fixdomain.sh"]
 
 EXPOSE 80
 
