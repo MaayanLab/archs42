@@ -73,4 +73,4 @@ then
     grep -rl $CORRELATION_OLD . | xargs sed -i 's@'"$CORRELATION_OLD"'@'"$CORRELATION"'@g';
 fi
 
-cd /
+cd /var/www/html

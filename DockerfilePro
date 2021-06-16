@@ -11,7 +11,6 @@ COPY ./archs4 /var/www/html/archs4
 
 RUN chmod 755 /var/www/html/archs4/fixdomain.sh
 
-CMD ["/var/www/html/archs4/fixdomain.sh"]
+RUN /var/www/html/archs4/fixdomain.sh
 
 EXPOSE 80
-

@@ -7,4 +7,4 @@ docker rm archs4
 
 docker build -f DockerfilePro -t maayanlab/archs4:cloud2 .
 
-docker push maayanlab/archs4:cloud2
+docker push maayanlab/archs4:cloud3
