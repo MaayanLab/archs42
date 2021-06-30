@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# these variables are passed as env variables
 #ARCHS4="https://maayanlab.cloud/archs4"
 #ROOKY="https://maayanlab.cloud/custom"
 #ELYSIUM="https://maayanlab.cloud/cloudalignment"
