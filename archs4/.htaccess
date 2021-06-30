@@ -2,8 +2,6 @@
 
 RewriteEngine on
 
-SOMETHING IS WRONG
-
 RewriteRule ^gene/(.+)$ search/genepage.php?search=go&gene=$1
 RewriteRule ^series/(.+)$ search/seriespage.php?search=$1
 
