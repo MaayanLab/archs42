@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Created by PhpStorm.
@@ -40,5 +39,3 @@ if(isset($_GET["search"])){
 }
 
 ?>
-
-
