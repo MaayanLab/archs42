@@ -14,4 +14,7 @@ RUN chmod 755 /var/www/html/archs4dev/fixdomain.sh
 
 RUN /var/www/html/archs4dev/fixdomain.sh
 
+RUN a2enmod rewrite
+RUN service apache2 restart
+
 EXPOSE 80
