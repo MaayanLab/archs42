@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# these variables are passed as env variables
 #ARCHS4="https://maayanlab.cloud/archs4"
 #ROOKY="https://maayanlab.cloud/custom"
 #ELYSIUM="https://maayanlab.cloud/cloudalignment"
@@ -21,7 +22,7 @@ SCAVI_OLD="https://amp.pharm.mssm.edu/scavi"
 HARMONIZOME_OLD="https://amp.pharm.mssm.edu/Harmonizome"
 CORRELATION_OLD="https://amp.pharm.mssm.edu/matrixapi"
 
-cd /app/archs4
+cd /var/www/html/archs4
 
 if [ ! -z ${ARCHS4+x} ];
 then
@@ -73,6 +74,4 @@ then
     grep -rl $CORRELATION_OLD . | xargs sed -i 's@'"$CORRELATION_OLD"'@'"$CORRELATION"'@g';
 fi
 
-cd /
-
-/run.sh
+cd /var/www/html

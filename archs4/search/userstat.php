@@ -1,5 +1,8 @@
-
 <?php
+header('Content-type: application/json');
+?>
+<?php
+
 /**
  * Created by PhpStorm.
  * User: maayanlab
@@ -8,9 +11,6 @@
  */
 
 require 'dbconfig.php';
-
-header('Content-type: application/json');
-
 
 $jdata = [];
 
@@ -30,7 +30,4 @@ $row = $result->fetch_assoc();
 $jdata["sample_download"] = $row["counts"];
 
 echo json_encode($jdata);
-
 ?>
-
-

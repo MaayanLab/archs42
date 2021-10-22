@@ -1,14 +1,20 @@
-FROM tutum/lamp
+FROM php:7.3-apache
 
-RUN mkdir -p /app/archs4
+RUN mkdir -p /var/www/html/archs4
+
+RUN apt-get update 
+RUN apt-get install -y git
+RUN docker-php-ext-install pdo pdo_mysql mysqli
 
 # Bundle app source
-COPY ./archs4 /app/archs4
+COPY ./archs4 /var/www/html/archs4
+COPY ./archs4/apache2.conf /etc/apache2
 
-RUN chmod 755 /*.sh
-RUN chmod 755 /app/archs4/fixdomain.sh
+RUN chmod 755 /var/www/html/archs4/fixdomain.sh
 
-CMD ["/app/archs4/fixdomain.sh"]
+RUN /var/www/html/archs4/fixdomain.sh
+
+RUN a2enmod rewrite
+RUN service apache2 restart
 
 EXPOSE 80
-

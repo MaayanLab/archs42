@@ -1,5 +1,5 @@
-
 <?php
+header('Content-type: application/json');
 /**
  * Created by PhpStorm.
  * User: maayanlab
@@ -12,8 +12,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require 'dbconfig.php';
-
-header('Content-type: application/json');
 
 $sql = "SELECT DISTINCT(gene) FROM functional_prediction ORDER BY gene ASC;";
 
@@ -30,5 +28,3 @@ $arr = $genes;
 echo json_encode($arr);
 
 ?>
-
-
