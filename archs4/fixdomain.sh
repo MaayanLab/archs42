@@ -12,7 +12,7 @@
 #HARMONIZOME="https://maayanlab.cloud/Harmonizome"
 
 ARCHS4_OLD="https://amp.pharm.mssm.edu/archs4"
-ROOKY_OLD="https://amp.pharm.mssm.edu/custom"
+ROOKY_OLD="https://maayanlab.cloud/custom"
 ELYSIUM_OLD="https://amp.pharm.mssm.edu/cloudalignment"
 HYDRA_OLD="https://amp.pharm.mssm.edu/hydra"
 ENRICHR_OLD="https://amp.pharm.mssm.edu/Enrichr"

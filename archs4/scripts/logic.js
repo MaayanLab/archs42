@@ -352,7 +352,7 @@ function search_similar_signature(searchterm, organism, genes, counts){
     
     $.ajax({
         type: "POST",
-        url: "https://amp.pharm.mssm.edu/custom/rooky",
+        url: "https://maayanlab.cloud/custom/rooky",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(jsonData),
@@ -1267,7 +1267,7 @@ function search_similar(searchterm, direction, termid){
     
     $.ajax({
         type: "POST",
-        url: "https://amp.pharm.mssm.edu/custom/rooky",
+        url: "https://maayanlab.cloud/custom/rooky",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(jsonData),

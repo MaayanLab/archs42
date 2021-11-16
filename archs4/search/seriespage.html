@@ -69,7 +69,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "https://amp.pharm.mssm.edu/custom/rooky",
+                url: "https://maayanlab.cloud/custom/rooky",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(jsonData),
