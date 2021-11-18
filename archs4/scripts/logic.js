@@ -1267,7 +1267,7 @@ function search_similar(searchterm, direction, termid){
     
     $.ajax({
         type: "POST",
-        url: "https://maayanlab.cloud/custom/rooky",
+        url: "https://maayanlab.cloud/rookpy/signature",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(jsonData),
