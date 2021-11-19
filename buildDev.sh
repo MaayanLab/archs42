@@ -5,6 +5,6 @@ docker rm $(docker ps -q -f status=exited)
 docker kill archs4dev
 docker rm archs4dev
 
-docker build -f DockerfileDev -t maayanlab/archs4dev:cloud .
+docker build -f DockerfileDev -t maayanlab/archs4dev:cloud10 .
 
-docker push maayanlab/archs4dev:cloud
+docker push maayanlab/archs4dev:cloud10
