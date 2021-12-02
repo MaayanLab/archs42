@@ -67,7 +67,7 @@
             jsonData["count"] = 101;
             $.ajax({
                 type: "POST",
-                url: "https://amp.pharm.mssm.edu/matrixapi/coltop",
+                url: "https://maayanlab.cloud/matrixapi/coltop",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(jsonData),
