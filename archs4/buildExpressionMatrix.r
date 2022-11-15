@@ -3,9 +3,9 @@
 
 library("rhdf5")    # can be installed using Bioconductor
 
-destination_file = "selected_species_matrix_v10.h5"
+destination_file = "archs4_gene_selected_species_v2.1.2.h5"
 extracted_expression_file = "searchterm_expression_matrix.tsv"
-url = "https://s3.amazonaws.com/mssm-seq-matrix/selected_species_matrix_v10.h5"
+url = "https://s3.dev.maayanlab.cloud/archs4/archs4_gene_selected_species_v2.1.2.h5"
 
 # Check if gene expression file was already downloaded, if not in current directory download file form repository
 if(!file.exists(destination_file)){
@@ -18,7 +18,7 @@ samp = c(insert_samples)
 
 # Retrieve information from compressed data
 samples = h5read(destination_file, "meta/samples/geo_accession")
-genes = h5read(destination_file, "meta/genes/genes")
+genes = h5read(destination_file, "meta/genes/gene_symbol")
 
 # Identify columns to be extracted
 sample_locations = which(samples %in% samp)
