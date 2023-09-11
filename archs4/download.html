@@ -130,7 +130,7 @@
         function downloadFile(_url, file, version) {
             $.ajax({
                 type: "GET",
-                url: "search/downloadtracker.php?ip=" + "0.0.0.0" + "&file=" + file + "&version=" + version,
+                url: "search/downloadcounter.php?&file=" + file + "&version=" + 1,
                 success: function () {
                     window.location = _url;
                 },
@@ -239,13 +239,14 @@
         <a href="javascript:scrollPage('prismexp_pred')">PrismExp predictions</a> |
         <a href="javascript:scrollPage('jl_transform')">JL transformed expression</a> | 
         <a href="javascript:scrollPage('kallisto_index')">Kallisto index files</a> |
+        <a href="javascript:scrollPage('exp_geo')">GEO expression</a> | 
         <a href="javascript:scrollPage('exp_recount')">recount2 expression</a> | 
         <a href="javascript:scrollPage('github_rep')">GitHub repository</a>
         <hr>
         <div>
-            <div style="width: 930px; height:320px; padding:10px 20px 20px 20px; margin-left:-10px; background-color: #cdffed; border-radius: 12px;" id="animation-target">
+            <div style="width: 930px; height:650px; padding:10px 20px 20px 20px; margin-left:-10px; background-color: #cdffed; border-radius: 12px;" id="animation-target">
                 <div>
-                    <h2>ARCHS4 Version 2 (Ensembl 107) <b>Beta</b></h2>
+                    <h2>ARCHS4 Version 2.2 (Ensembl 107)</h2>
                     This is the newest data-release of the ARCHS4 gene expression collection. The Ensembl Annotation version is now 107 increasing the number of genes significantly for coding and non coding genes.
                     A redesigned pipeline was used to create the files. Some features are still missing and will be added at a later time point. The old data will also still be available.
                 </div>
@@ -264,25 +265,93 @@
                     Expression files for mouse and human in HDF5 format. All gene counts are on gene level (Entrez Gene
                     Symbol). For compression purposes the Kallisto pseudocounts are rounded to integer values.
                 </div>
-                <div style="float: left; width:270px;">
+                <div style="float: left; width:270px; height:120px;">
                     <a style="font-size:18;"
-                        href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/archs4_gene_human_v2.1.2.h5','human_matrix_v2.1.2.h5','2.1.2')">human_matrix_v2.1.2.h5</a><br>
-                    <i>Date: 10-19-2022</i>
+                        href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_gene_v2.2.h5','human_gene_v2.2.h5','2.2')">human_gene_v2.2.h5</a><br>
+                    <i>Date: 5-30-2023</i>
                     <br>
-                    <i>Size: 28G</i>
+                    <i>Size: 35G</i>
                     <br>
-                    <i style="font-size: 9px;">SHA1: 742ba9fba9b6e5bc4577a555243dc208dafc0423</i>
+                    <i style="font-size: 9px;">SHA1: 20f4063e264437c78c7875d74a31685e2ca2a18d</i>
                 </div>
 
                 <div style="float: left; width:270px;">
                     <a style="font-size:18;"
-                        href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/archs4_gene_mouse_v2.1.2.h5','mouse_matrix_v2.1.2.h5','2.1.2')">mouse_matrix_v2.1.2.h5</a><br>
-                    <i>Date: 10-19-2022</i>
+                        href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_gene_v2.2.h5','mouse_gene_v2.2.h5','2.1.2')">mouse_gene_v2.2.h5</a><br>
+                    <i>Date: 5-30-2023</i>
                     <br>
-                    <i>Size: 25G</i>
+                    <i>Size: 29G</i>
                     <br>
-                    <i style="font-size: 9px;">SHA1: ded9d42ce96bf23fd7a107e6cfe839b622df7919</i>
+                    <i style="font-size: 9px;">SHA1: 4308672c7a8e93fb063c7c289564105af60aaaf7</i>
                 </div>
+                
+                <div id="exp_gene" style="float: left; width:340px;">
+                    <h3>Expression (transcript level)</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Human</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Mouse</h3>
+                </div>
+
+                <div style="float: left; width:310px; padding-right: 60px; padding-left: 20px; height: 120px;">
+                    Transcript level expression files for mouse and human in HDF5 format. All transcript counts are on ensembl_id level. For compression purposes the Kallisto pseudocounts are rounded to integer values.
+                </div>
+                <div style="float: left; width:270px; height: 120px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_transcript_v2.2.h5','human_transcript_v2.2.h5','2.2')">human_transcript_v2.2.h5</a><br>
+                    <i>Date: 5-30-2023</i>
+                    <br>
+                    <i>Size: 107G</i>
+                    <br>
+                    <i style="font-size: 9px;">SHA1: 9d129b0c06531ec12847fc42f988818e0e7afcf7</i>
+                </div>
+
+                <div style="float: left; width:270px; height: 120px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_transcript_v2.2.h5','mouse_transcript_v2.2.h5','2.2')">mouse_transcript_v2.2.h5</a><br>
+                    <i>Date: 5-30-2023</i>
+                    <br>
+                    <i>Size: 65G</i>
+                    <br>
+                    <i style="font-size: 9px;">SHA1: cb7c8a7e0e1996067208cb526ff1e9670bf4335d</i>
+                </div>
+
+
+                <div id="exp_gene" style="float: left; width:340px;">
+                    <h3>Expression (transcript TPM)</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Human</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Mouse</h3>
+                </div>
+
+                <div style="float: left; width:310px; padding-right: 60px; padding-left: 20px;">
+                    TPM transcript expression files for mouse and human in HDF5 format. All transcript TPM are on ensembl_id level.
+                </div>
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_tpm_v2.2.h5','human_tpm_v2.2.h5','2.2')">human_tpm_v2.2.h5</a><br>
+                    <i>Date: 5-30-2023</i>
+                    <br>
+                    <i>Size: 218G</i>
+                    <br>
+                    <i style="font-size: 9px;">SHA1: 85bd7ea1fc9aa8bb6c1dda927c9de17b11ba9933</i>
+                </div>
+
+                <div style="float: left; width:270px;">
+                    <a style="font-size:18;"
+                        href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_tpm_v2.2.h5','mouse_tpm_v2.2.h5','2.2')">mouse_tpm_v2.2.h5</a><br>
+                    <i>Date: 5-30-2023</i>
+                    <br>
+                    <i>Size: 126G</i>
+                    <br>
+                    <i style="font-size: 9px;">SHA1: 496226cbe8b8148efbe84db0f8e72d7b9af27790</i>
+                </div>
+
             </div>
 
             <div id="exp_gene" style="float: left; width:340px;">
@@ -717,6 +786,37 @@
 
                 <hr>
 
+                <div id="exp_geo" style="float: left; width:340px;">
+                    <h3>GEO expression</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Human</h3>
+                </div>
+                <div style="float: left; width:270px;">
+                    <h3>Mouse</h3>
+                </div>
+
+                <div style="width:900px; height:240px; padding-left:30px;">
+                    <div style="float: left; width:310px; padding-right: 60px;">
+                        Gene counts from GEO <a href="https://www.ncbi.nlm.nih.gov/gds?term=%22rnaseq+counts%22%5BFilter%5D&utm_source=ncbi_insights&utm_medium=referral&utm_campaign=geo-human-rna-seq-20230419"
+                            target="_blank">GEO series with raw gene counts</a>. The samples in the H5 file are also in the current version (v2.1) of ARCHS4. Due to some missing samples in GEO there are only 340713 samples processed by GEO that are overlapping with ARCHS4.
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <a style="font-size:18;"
+                            href="javascript:downloadFile('https://s3.amazonaws.com/mssm-data/geo_human_v1.h5','geo_human_v1.h5','1')">geo_human_v1.h5
+                            </a><br>
+                        <i>Date: 4/2023</i>
+                        <br>
+                        <i>Size: 17 GB</i>
+                    </div>
+                    <div style="float: left; width:270px;">
+                        <i>Currently not available on GEO</i>
+                    </div>
+                </div>
+
+
+                <hr>
+
                 <div id="exp_recount" style="float: left; width:340px;">
                     <h3>recount2 expression</h3>
                 </div>
@@ -802,7 +902,7 @@
                     <li class="fl"><a href="http://www.lincs-dcic.org/" target="_blank">BD2K-LINCS Data Coordination and
                             Integration Center (DCIC)</a></li>
                     <li class="fl"><a href="http://www.lincsproject.org/">NIH LINCS program</a></li>
-                    <li class="fl"><a href="http://bd2k.nih.gov/" target="_blank">NIH Big Data to Knowledge (BD2K)</a>
+                    <li class="fl"><a href="https://itcr.cancer.gov/" target="_blank">Informatics Technology for Cancer Research (ITCR)</a></li>
                     </li>
                     <li class="fl"><a href="https://commonfund.nih.gov/idg/index" target="_blank">NIH Illuminating the
                             Druggable Genome (IDG) Program</a></li>
@@ -811,7 +911,7 @@
                 </ul>
             </div>
             <div style="float: right; color: grey;">
-                <img src="images/dcic.png" height=100><br>
+                <img src="images/logo_ml.png" height=80><br>
                 © Ma'ayan Lab.
             </div>
         </div>
