@@ -244,10 +244,39 @@
         <a href="javascript:scrollPage('github_rep')">GitHub repository</a>
         <hr>
         <div>
+
             <div style="width: 930px; padding:10px 20px 20px 20px; margin-left:-10px; background-color: #cdffed; border-radius: 12px;" id="animation-target">
                 <div>
+                    <h2>ARCHS4 Version 2.4 (Ensembl 107)</h2>
+                    This is the newest data-release of the ARCHS4 gene expression collection. The Ensembl Annotation version is 107 for both human and mouse data.
+                </div>
+
+                <section id="expression-gene-level">
+                    <h3 id="exp_gene">Expression (gene level)</h3>
+                    <div class="container">
+                        <div class="row" style="max-width: 930px;">
+                            <div class="col-md-4">
+                                <p>Expression files for mouse and human in HDF5 format. All gene counts are on gene level (Entrez Gene Symbol). For compression purposes the Kallisto pseudocounts are rounded to integer values.</p>
+                            </div>
+                            <div class="col-md-4 bg-light">
+                                <h3>Human</h3>
+                                <a href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_gene_v2.4.h5','human_gene_v2.4.h5','2.4')">human_gene_v2.4.h5</a>
+                                <p>Date: 6-4-2024<br>Size: 43G<br><small>SHA1: f4aea8dc17bd733a6b424dc6906c81f83ef4c4a4</small></p>
+                            </div>
+                            <div class="col-md-4 bg-secondary text-white">
+                                <h3>Mouse</h3>
+                                <a href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_gene_v2.4.h5','mouse_gene_v2.4.h5','2.4')">mouse_gene_v2.4.h5</a>
+                                <p>Date: 6-4-2024<br>Size: 35G<br><small>SHA1: 883bdf48b80b47e225409c9de9c5161362f21cb0</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div style="width: 930px; padding:10px 20px 20px 20px; margin-left:-10px;">
+                <div>
                     <h2>ARCHS4 Version 2.3 (Ensembl 107)</h2>
-                    This is the newest data-release of the ARCHS4 gene expression collection. The Ensembl Annotation version is now 107 increasing the number of genes significantly for coding and non coding genes.
+                    The Ensembl Annotation version is now 107 increasing the number of genes significantly for coding and non coding genes.
                     A redesigned pipeline was used to create the files. Older versions are still available.
                 </div>
 
@@ -271,7 +300,6 @@
                         </div>
                     </div>
                 </section>
-
             </div>
 
 
