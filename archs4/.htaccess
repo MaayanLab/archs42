@@ -5,4 +5,7 @@ RewriteEngine on
 RewriteRule ^gene/(.+)$ search/genepage.php?search=go&gene=$1
 RewriteRule ^series/(.+)$ search/seriespage.php?search=$1
 
+RewriteRule ^download download.html
+RewriteRule ^help help.html
+
 </IfModule>

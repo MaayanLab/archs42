@@ -244,108 +244,125 @@
         <a href="javascript:scrollPage('github_rep')">GitHub repository</a>
         <hr>
         <div>
-            <div style="width: 930px; padding:10px 20px 20px 20px; margin-left:-10px; background-color: #cdffed; border-radius: 12px;" id="animation-target">
+            <div style="width: 930px; height:650px; padding:10px 20px 20px 20px; margin-left:-10px; background-color: #cdffed; border-radius: 12px;" id="animation-target">
                 <div>
-                    <h2>ARCHS4 Version 2.3 (Ensembl 107)</h2>
+                    <h2>ARCHS4 Version 2.2 (Ensembl 107)</h2>
                     This is the newest data-release of the ARCHS4 gene expression collection. The Ensembl Annotation version is now 107 increasing the number of genes significantly for coding and non coding genes.
-                    A redesigned pipeline was used to create the files. Older versions are still available.
+                    A redesigned pipeline was used to create the files. Some features are still missing and will be added at a later time point. The old data will also still be available.
                 </div>
 
-                <section id="expression-gene-level">
-                    <h3 id="exp_gene">Expression (gene level)</h3>
-                    <div class="container">
-                        <div class="row" style="max-width: 930px;">
-                            <div class="col-md-4">
-                                <p>Expression files for mouse and human in HDF5 format. All gene counts are on gene level (Entrez Gene Symbol). For compression purposes the Kallisto pseudocounts are rounded to integer values.</p>
-                            </div>
-                            <div class="col-md-4 bg-light">
-                                <h3>Human</h3>
-                                <a href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_gene_v2.3.h5','human_gene_v2.3.h5','2.3')">human_gene_v2.3.h5</a>
-                                <p>Date: 3-11-2024<br>Size: 41G<br><small>SHA1: 31a37ba49ab5cf812a0be9f180d75b3b29e07ea2</small></p>
-                            </div>
-                            <div class="col-md-4 bg-secondary text-white">
-                                <h3>Mouse</h3>
-                                <a href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_gene_v2.3.h5','mouse_gene_v2.3.h5','2.3')">mouse_gene_v2.3.h5</a>
-                                <p>Date: 3-11-2024<br>Size: 34G<br><small>SHA1: 45f1a98bf2da06ecb249f25be08126cb63553d9c</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+                
             </div>
 
 
-            <h2>ARCHS4 Version 2.2 (Ensembl 107)</h2>
-
-            <section id="expression-gene-level" style="max-width: 900px;">
+            <div id="exp_gene" style="float: left; width:340px;">
                 <h3>Expression (gene level)</h3>
-                <div class="container">
-                    <div class="row" style="max-width: 930px;">
-                        <div class="col-md-4">
-                            <p>Expression files for mouse and human in HDF5 format. All gene counts are on gene level (Entrez Gene Symbol). For compression purposes the Kallisto pseudocounts are rounded to integer values.</p>
-                        </div>
-                        <div class="col-md-4 bg-light">
-                            <h3>Human</h3>
-                            <a href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_gene_v2.2.h5','human_gene_v2.2.h5','2.2')">human_gene_v2.2.h5</a>
-                            <p>Date: 5-30-2023<br>Size: 35G<br><small>SHA1: 20f4063e264437c78c7875d74a31685e2ca2a18d</small></p>
-                        </div>
-                        <div class="col-md-4 bg-secondary text-white">
-                            <h3>Mouse</h3>
-                            <a href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_gene_v2.2.h5','mouse_gene_v2.2.h5','2.1.2')">mouse_gene_v2.2.h5</a>
-                            <p>Date: 5-30-2023<br>Size: 29G<br><small>SHA1: 4308672c7a8e93fb063c7c289564105af60aaaf7</small></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Human</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Mouse</h3>
+            </div>
+
+            <div style="float: left; width:310px; padding-right: 60px; padding-left: 30px;">
+                Expression files for mouse and human in HDF5 format. All gene counts are on gene level (Entrez Gene
+                Symbol). For compression purposes the Kallisto pseudocounts are rounded to integer values.
+            </div>
+            <div style="float: left; width:270px; height:120px;">
+                <a style="font-size:18;"
+                    href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_gene_v2.2.h5','human_gene_v2.2.h5','2.2')">human_gene_v2.2.h5</a><br>
+                <i>Date: 5-30-2023</i>
+                <br>
+                <i>Size: 35G</i>
+                <br>
+                <i style="font-size: 9px;">SHA1: 20f4063e264437c78c7875d74a31685e2ca2a18d</i>
+            </div>
+
+            <div style="float: left; width:270px;">
+                <a style="font-size:18;"
+                    href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_gene_v2.2.h5','mouse_gene_v2.2.h5','2.1.2')">mouse_gene_v2.2.h5</a><br>
+                <i>Date: 5-30-2023</i>
+                <br>
+                <i>Size: 29G</i>
+                <br>
+                <i style="font-size: 9px;">SHA1: 4308672c7a8e93fb063c7c289564105af60aaaf7</i>
+            </div>
             
-            <section id="expression-transcript-level">
-                <h3 id="exp_trans">Expression (transcript level)</h3>
-                <div class="container">
-                    <div class="row" style="max-width: 930px;">
-                        <div class="col-md-4">
-                            <p>Transcript level expression files for mouse and human in HDF5 format. All transcript counts are on ensembl_id level. For compression purposes the Kallisto pseudocounts are rounded to integer values.</p>
-                        </div>
-                        <div class="col-md-4 bg-light">
-                            <h3>Human</h3>
-                            <a href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_transcript_v2.2.h5','human_transcript_v2.2.h5','2.2')">human_transcript_v2.2.h5</a>
-                            <p>Date: 5-30-2023<br>Size: 107G<br><small>SHA1: 9d129b0c06531ec12847fc42f988818e0e7afcf7</small></p>
-                        </div>
-                        <div class="col-md-4 bg-secondary text-white">
-                            <h3>Mouse</h3>
-                            <a href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_transcript_v2.2.h5','mouse_transcript_v2.2.h5','2.2')">mouse_transcript_v2.2.h5</a>
-                            <p>Date: 5-30-2023<br>Size: 65G<br><small>SHA1: cb7c8a7e0e1996067208cb526ff1e9670bf4335d</small></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="expression-transcript-tpm">
-                <h3 id="exp_tpm">Expression (transcript TPM)</h3>
-                <div class="container">
-                    <div class="row" style="max-width: 930px;">
-                        <div class="col-md-4">
-                            <p>TPM transcript expression files for mouse and human in HDF5 format. All transcript TPM are on ensembl_id level.</p>
-                        </div>
-                        <div class="col-md-4 bg-light">
-                            <h3>Human</h3>
-                            <a href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_tpm_v2.2.h5','human_tpm_v2.2.h5','2.2')">human_tpm_v2.2.h5</a>
-                            <p>Date: 5-30-2023<br>Size: 218G<br><small>SHA1: 85bd7ea1fc9aa8bb6c1dda927c9de17b11ba9933</small></p>
-                        </div>
-                        <div class="col-md-4 bg-secondary text-white">
-                            <h3>Mouse</h3>
-                            <a href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_tpm_v2.2.h5','mouse_tpm_v2.2.h5','2.2')">mouse_tpm_v2.2.h5</a>
-                            <p>Date: 5-30-2023<br>Size: 126G<br><small>SHA1: 496226cbe8b8148efbe84db0f8e72d7b9af27790</small></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div id="exp_gene" style="float: left; width:500px;">
+                <h3>Expression (transcript level)</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Human</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Mouse</h3>
+            </div>
+
+            <div style="float: left; width:310px; padding-right: 60px; padding-left: 30px; height: 120px;">
+                Transcript level expression files for mouse and human in HDF5 format. All transcript counts are on ensembl_id level. For compression purposes the Kallisto pseudocounts are rounded to integer values.
+            </div>
+            <div style="float: left; width:270px; height: 120px;">
+                <a style="font-size:18;"
+                    href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_transcript_v2.2.h5','human_transcript_v2.2.h5','2.2')">human_transcript_v2.2.h5</a><br>
+                <i>Date: 5-30-2023</i>
+                <br>
+                <i>Size: 107G</i>
+                <br>
+                <i style="font-size: 9px;">SHA1: 9d129b0c06531ec12847fc42f988818e0e7afcf7</i>
+            </div>
+
+            <div style="float: left; width:270px; height: 120px;">
+                <a style="font-size:18;"
+                    href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_transcript_v2.2.h5','mouse_transcript_v2.2.h5','2.2')">mouse_transcript_v2.2.h5</a><br>
+                <i>Date: 5-30-2023</i>
+                <br>
+                <i>Size: 65G</i>
+                <br>
+                <i style="font-size: 9px;">SHA1: cb7c8a7e0e1996067208cb526ff1e9670bf4335d</i>
+            </div>
+
+
+            <div id="exp_gene" style="float: left; width:340px;">
+                <h3>Expression (transcript TPM)</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Human</h3>
+            </div>
+            <div style="float: left; width:270px;">
+                <h3>Mouse</h3>
+            </div>
+
+            <div style="float: left; width:310px; padding-right: 60px; padding-left: 30px;">
+                TPM transcript expression files for mouse and human in HDF5 format. All transcript TPM are on ensembl_id level.
+            </div>
+            <div style="float: left; width:270px;">
+                <a style="font-size:18;"
+                    href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/human_tpm_v2.2.h5','human_tpm_v2.2.h5','2.2')">human_tpm_v2.2.h5</a><br>
+                <i>Date: 5-30-2023</i>
+                <br>
+                <i>Size: 218G</i>
+                <br>
+                <i style="font-size: 9px;">SHA1: 85bd7ea1fc9aa8bb6c1dda927c9de17b11ba9933</i>
+            </div>
+
+            <div style="float: left; width:270px;">
+                <a style="font-size:18;"
+                    href="javascript:downloadFile('https://s3.dev.maayanlab.cloud/archs4/files/mouse_tpm_v2.2.h5','mouse_tpm_v2.2.h5','2.2')">mouse_tpm_v2.2.h5</a><br>
+                <i>Date: 5-30-2023</i>
+                <br>
+                <i>Size: 126G</i>
+                <br>
+                <i style="font-size: 9px;">SHA1: 496226cbe8b8148efbe84db0f8e72d7b9af27790</i>
+            </div>
 
 
 
 
-            <hr>
 
-            <div style="float: left; width:340px;">
+
+
+            <div id="exp_gene" style="float: left; width:340px;">
                 <h3>Expression (gene level)</h3>
             </div>
             <div style="float: left; width:270px;">
@@ -357,7 +374,7 @@
 
             <hr>
 
-            <div style="width:900px; height:140px; padding-left:30px;">
+            <div style="width:900px; height:160px; padding-left:30px;">
                 <div style="float: left; width:310px; padding-right: 60px;">
                     Expression files for mouse and human in HDF5 format. All gene counts are on gene level (Entrez Gene
                     Symbol). For compression purposes the Kallisto pseudocounts are rounded to integer values.
@@ -380,7 +397,7 @@
             </div>
             <hr>
 
-            <div style="float: left; width:340px;">
+            <div id="exp_trans" style="float: left; width:340px;">
                 <h3>Expression (transcript level)</h3>
             </div>
             <div style="float: left; width:270px;">
